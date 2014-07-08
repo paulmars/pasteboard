@@ -1,0 +1,32 @@
+<%= button_to "New Board", boards_url(:method => :post), class: "btn lead-button" %>
+
+<div class="row board-row">
+  <div class="col-sm-8">
+    Boards
+  </div>
+  <div class="col-sm-1">
+    Files
+  </div>
+  <div class="col-sm-2">
+    Created
+  </div>
+  <div class="col-sm-1">
+  </div>
+</div>
+
+<% @boards.each do |board| %>
+  <div class="row board-row">
+    <div class="col-sm-8">
+      <%= link_to board.stub, board_url(board) %>
+    </div>
+    <div class="col-sm-1">
+      <%= board.sitefiles.count %>
+    </div>
+    <div class="col-sm-2">
+      <%= time_ago_in_words board.created_at %>
+    </div>
+    <div class="col-sm-1">
+      <%= button_to "delete", board_url(board), method: "delete", class: "btn" %>
+    </div>
+  </div>
+<% end %>

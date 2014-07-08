@@ -1,0 +1,46 @@
+<% if current_user && @board && @board.user == current_user %>
+
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3">
+    <div id="dropbox">
+      <p>
+        Drag files here<br>
+        <small>or paste if you use Chrome</small>
+      </p>
+    </div>
+
+    <div id="last-upload">
+      Uploading paste....
+    </div>
+  </div>
+</div>
+
+<% end %>
+
+<div class="row">
+  <div class="col-sm-12">
+    <div id="images" class="clearfix">
+    </div>
+  </div>
+</div>
+
+<script type="text/template" id="thumb-template">
+<div class="image-wrapper">
+  <a href="<%%= url %>" class="thumbnail-full">
+    <img src="<%%= url640 %>" class="img-responsive">
+  </a>
+</div>
+</script>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js"></script>
+
+<%= javascript_include_tag "jqueryfiledrop" %>
+<%= javascript_include_tag "dropbox" %>
+
+<script type="text/javascript">
+  window.filesUrl = "<%= sitefiles_url(@board) %>";
+</script>
+
+<%= javascript_include_tag "board" %>
