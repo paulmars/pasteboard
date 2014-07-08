@@ -1,4 +1,4 @@
-Pasteboard.io
+[Pasteboard.io](http://pasteboard.io/)
 =============
 
 A simple site to show people images.
