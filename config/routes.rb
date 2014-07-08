@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  devise_for :user, controllers: { registrations: "registrations" }
+  devise_for :user
   devise_scope :user do
-    get 'signup', :to => 'registrations#new'
+    get 'signup', :to => 'devise/registrations#new'
     get 'login', :to => 'devise/sessions#new'
     get 'signout', :to => 'devise/sessions#destroy'
   end
