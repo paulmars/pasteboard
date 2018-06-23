@@ -1,3 +1,4 @@
-git push heroku master &&
+git push origin master &&
+  git push heroku master &&
   heroku run rake db:migrate
   curl www.pasteboard.io > /dev/null
